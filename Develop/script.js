@@ -1,12 +1,13 @@
 // Assignment Code
 const generateBtn = document.querySelector("#generate");
 
+//Set global variables
 let numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 let upperCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 let lowerCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 let special = ['@', '%', '+', '/', "'", '!', '#', '$', '^', '?', ':', ',', ')', '(', '}', '{', ']', '[', '~', '-', '_', '.'];
 
-
+//Poll user for password criteria
 function getInfo() {
   let passLength = prompt("How long do you want your password? (enter between 8 and 128)");
 
@@ -31,6 +32,7 @@ function getInfo() {
   return answers;
 }
 
+//Generates password according to selections made by user
 function generatePassword() {
   let parameters = getInfo();
   let password = [];
@@ -51,7 +53,7 @@ function generatePassword() {
     for (let i of special)
       password.push(i);
   }
-  console.log(password)
+  //Randomizes the chars
   let randomPassword = ""
   for (let i = 0; i < parameters.length; i++) {
     randomPassword += password[Math.floor(Math.random() * password.length)];
